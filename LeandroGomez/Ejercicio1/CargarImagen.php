@@ -1,6 +1,6 @@
 <?php
 
-$CarpetaDireccion = "imagenes/";
+$CarpetaDireccion = "imagenes";
 $ruta_archivo = $CarpetaDireccion ."/". $_FILES["archivo"]["name"];
 $uploadOk = 1;
 //contiene el tipo de imagen que se va a subir
@@ -33,11 +33,12 @@ if($Tipo_de_imagen != "jpg" && $Tipo_de_imagen != "png" && $Tipo_de_imagen != "j
 if ($uploadOk == 0) 
 {
     echo "No se subio la imagen";
-  // if everything is ok, try to upload file
 } 
 else 
 {
     move_uploaded_file($_FILES["archivo"]["tmp_name"], $ruta_archivo);
+    header("Location: Insta-gramo.php");
+    exit();
 }
 
 ?>
